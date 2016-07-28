@@ -771,6 +771,10 @@
 
 <p>If you want multiple values of a single attribute, you can specify them individually. For example, if you want to see white, bisque, or stainless-steel side-by-side refrigerators, use this query.</p>
 
+<p><em>NOTE: To search for products based on a list of attribute values, we recommend using the <code class="prettyprint">in</code> operator. Most attributes can be used with the <code class="prettyprint">in</code> operator. The most common attribute used is <code class="prettyprint">SKU</code>. Using the <code class="prettyprint">in</code> operator helps to avoid Query Per Second errors (QPS).</em> </p>
+
+<p><em>For example: <code class="prettyprint">http://api.bestbuy.com/v1/products(sku in(43900,2088495,7150065))?apiKey=YourAPIKey</code></em></p>
+
 <h2 id="wildcards-value-is-present">Wildcards - Value is present</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&amp;driveCapacityGb=*)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
 </code></pre>
