@@ -96,6 +96,16 @@
 
 <p>When using any of the endpoints in the Recommendations API the response format returned will be json. The <strong>XML</strong> format is not supported for the Recommendations API endpoints. You can specify the format using <code class="prettyprint">/6534009/alsoViewed.json</code> or not specify a format like <code class="prettyprint">/6534009/alsoViewed</code>.</p>
 
+<p><em>Applies to: Products API</em></p>
+
+<p>By agreeing to Best Buy’s <a href="https://developer.bestbuy.com/legal">terms of service</a>, you also agree not to cache any content except on a temporary basis. As such, our response links will expire after seven days. Here are several examples of appropriately formatted response URLs: </p>
+
+<p><code class="prettyprint">url: https://api.bestbuy.com/click/5592e2b895800000/12345678/pdp</code></p>
+
+<p><code class="prettyprint">mobileUrl: https://api.bestbuy.com/click/5592e2b895800000/12345678/pdp</code></p>
+
+<p><code class="prettyprint">addToCartUrl: https://api.bestbuy.com/click/5592e2b895800000/12345678/cart</code></p>
+
 <h2 id="returned-attributes">Returned Attributes</h2>
 
 <pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products/8880044.json?show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
