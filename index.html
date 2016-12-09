@@ -1733,6 +1733,60 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 </tr>
 </tbody></table>
 
+<h2 id="warranties">Warranties</h2>
+
+<p>The Warranties endpoint within the Best Buy Products API helps you access a list of warranties associated with a Best Buy product, along with select data associated with the warranty. For more detailed information about a specific warranty, you can look at that warranty by SKU in our Products endpoint.</p>
+
+<blockquote>
+<p>Search for warranties associated with SKU 5005633</p>
+</blockquote>
+
+<pre class="highlight shell"><code>curl <span class="s2">"http://api.bestbuy.com/v1/products/5005633/warranties.json?apiKey=YourAPIKey"</span>
+</code></pre>
+
+<pre class="highlight json-doc"><code><span class="p">[{</span><span class="w">
+    </span><span class="nt">"skuId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2745188"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-Year Accidental Geek Squad Protection"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"currentPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">149.99</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GSP"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"department"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"subclass"</span><span class="p">:</span><span class="w"> </span><span class="s2">"210"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"protectionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accidental"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"paymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONETIME"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12 months"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"332"</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h3 id="common-attributes">Common Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>protectionType</strong></td>
+<td>Collection of warranties offering specific protections</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>paymentType</strong></td>
+<td>Collection of warranties available with a specific type of payment</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>term</strong></td>
+<td>Collection of warranties available for a certain length of time</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Note:</strong> Descriptions of other warranty-related attributes, including <code class="prettyprint">skuId</code>, <code class="prettyprint">shortName</code>, <code class="prettyprint">currentPrice</code>, <code class="prettyprint">type</code>, <code class="prettyprint">department</code>, <code class="prettyprint">class</code>, and <code class="prettyprint">subclass</code> can be found in our core Products documentation.</p>
+
 <h2 id="products-bulk-download">Products Bulk Download</h2>
 
 <p>There are two files generated for all products:</p>
