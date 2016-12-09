@@ -783,9 +783,9 @@
 
 <p>If you want multiple values of a single attribute, you can specify them individually. For example, if you want to see white, bisque, or stainless-steel side-by-side refrigerators, use this query.</p>
 
-<p><em>NOTE: To search for products based on a list of attribute values, we recommend using the <code class="prettyprint">in</code> operator. Most attributes can be used with the <code class="prettyprint">in</code> operator. The most common attribute used is <code class="prettyprint">SKU</code>. Using the <code class="prettyprint">in</code> operator helps to avoid Query Per Second errors (QPS).</em> </p>
+<p><em>NOTE: To search for products based on a list of attribute values, we recommend using the <code class="prettyprint">in</code> operator. Most attributes can be used with the <code class="prettyprint">in</code> operator. The most common attribute used is <code class="prettyprint">SKU</code>. Using the <code class="prettyprint">in</code> operator helps to avoid Query Per Second errors (QPS).</em></p>
 
-<p><em>For example: <code class="prettyprint">http://api.bestbuy.com/v1/products(sku in(43900,2088495,7150065))?apiKey=YourAPIKey</code></em></p>
+<p><em>For example: <code class="prettyprint">https://api.bestbuy.com/v1/products(sku in(43900,2088495,7150065))?apiKey=YourAPIKey</code></em></p>
 
 <h2 id="wildcards-value-is-present">Wildcards - Value is present</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&amp;driveCapacityGb=*)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
@@ -1741,7 +1741,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 <p>Search for warranties associated with SKU 5005633</p>
 </blockquote>
 
-<pre class="highlight shell"><code>curl <span class="s2">"http://api.bestbuy.com/v1/products/5005633/warranties.json?apiKey=YourAPIKey"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products/5005633/warranties.json?apiKey=YourAPIKey"</span>
 </code></pre>
 
 <pre class="highlight json-doc"><code><span class="p">[{</span><span class="w">
@@ -1865,7 +1865,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
 <h3 id="sample-query-for-digital-products">Sample Query For Digital Products</h3>
 
-<p><code class="prettyprint">http://api.bestbuy.com/v1/subsets/productsDigital.xml.zip?apiKey=YourAPIKey</code></p>
+<p><code class="prettyprint">https://api.bestbuy.com/v1/subsets/productsDigital.xml.zip?apiKey=YourAPIKey</code></p>
 
           <h1 id="buying-options-open-box-api">Buying Options (Open Box) API</h1>
 
@@ -1981,7 +1981,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
         </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://img.bbystatic.com/BestBuy_US/images/products/8610/8610161_rc.jpg"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.bestbuy.com/v1/products/8610161.json?apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/8610161.json?apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/acer-11-6-chromebook-intel-celeron-2gb-memory-16gb-emmc-flash-memory-moonstone-white/8610161.p?id=1219351773817&amp;skuId=8610161&amp;cmp=RMX&amp;ky=2l9pmD3wUBb9cc0tkHo49KBFCMPCiIPY4#tab=buyingOptions"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/click/-/8610161/cart"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -2037,7 +2037,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
       </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.bestbuy.com/beta/products/openBox(sku%20in(5729048,7528703,4839357,8153056,8610161,4591017))?apiKey=YourAPIKey"</span><span class="w">
+      </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/beta/products/openBox(sku%20in(5729048,7528703,4839357,8153056,8610161,4591017))?apiKey=YourAPIKey"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2053,7 +2053,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
         </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://img.bbystatic.com/BestBuy_US/images/products/8610/8610161_rc.jpg"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.bestbuy.com/v1/products/8610161.json?apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/8610161.json?apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/acer-11-6-chromebook-intel-celeron-2gb-memory-16gb-emmc-flash-memory-moonstone-white/8610161.p?id=1219351773817&amp;skuId=8610161&amp;cmp=RMX&amp;ky=2l9pmD3wUBb9cc0tkHo49KBFCMPCiIPY4#tab=buyingOptions"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/click/-/8610161/cart"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -2117,7 +2117,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
         </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://img.bbystatic.com/BestBuy_US/images/products/5729/5729048_sc.jpg"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.bestbuy.com/v1/products/5729048.json?apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/5729048.json?apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/canon-ef-40mm-f-2-8-stm-standard-lens-black/5729048.p?id=1218688218296&amp;skuId=5729048&amp;cmp=RMX&amp;ky=2l9pmD3wUBb9cc0tkHo49KBFCMPCiIPY4#tab=buyingOptions"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/click/-/5729048/cart"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -2351,7 +2351,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
 <h2 id="trending-products">Trending Products</h2>
 
-<pre class="highlight shell"><code>curl <span class="s2">"http://api.bestbuy.com/beta/products/trendingViewed(categoryId=abcat0400000)?apiKey=YourAPIKey"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/beta/products/trendingViewed(categoryId=abcat0400000)?apiKey=YourAPIKey"</span>
 </code></pre>
 
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
@@ -2378,7 +2378,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
         </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://img.bbystatic.com/BestBuy_US/images/products/8896/8896132_sc.jpg"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.bestbuy.com/v1/products/8896132.json?apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/8896132.json?apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/canon-eos-70d-dslr-camera-with-18-135mm-is-stm-lens-black/8896132.p?id=1218941181224&amp;skuId=8896132&amp;cmp=RMX&amp;ky=2l9pmD3wUBb9cc0tkHo49KBFCMPCiIPY4"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&amp;type=category&amp;cmp=RMX&amp;ky=2l9pmD3wUBb9cc0tkHo49KBFCMPCiIPY4&amp;qvsids=8896132"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -2441,7 +2441,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
         </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://images.bestbuy.com/BestBuy_US/images/products/1740/1740039_sc.jpg"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.bestbuy.com/v1/products/1740039.json"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/1740039.json"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&amp;type=category&amp;cmp=RMX&amp;ky=1xrtkOPXgHdxEmF4yQx1jGyxiihDiJ5c2&amp;qvsids=1740039"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/belkin-hdmi-to-vga-adapter/1740039.p?id=1219062507184&amp;skuId=1740039&amp;cmp=RMX&amp;ky=2dN2vg9ikE823Sb2cqFFchnSnf6JkvQna"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -2500,7 +2500,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
         </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://images.bestbuy.com/BestBuy_US/images/products/nonsku/default_movies_l.jpg"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.bestbuy.com/v1/products/5747275.json"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/5747275.json"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&amp;type=category&amp;cmp=RMX&amp;ky=1xrtkOPXgHdxEmF4yQx1jGyxiihDiJ5c2&amp;qvsids=5747275"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/batman-begins-blu-ray-disc/8880044.p?id=1484301&amp;skuId=8880044&amp;cmp=RMX&amp;ky=1xrtkOPXgHdxEmF4yQx1jGyxiihDiJ5c2"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -2536,7 +2536,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
 <h2 id="similar-products">Similar Products</h2>
 
-<pre class="highlight shell"><code>curl <span class="s2">"http://api.bestbuy.com/beta/products/2874502/similar?apiKey=YourAPIKey"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/beta/products/2874502/similar?apiKey=YourAPIKey"</span>
 </code></pre>
 
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
@@ -2559,7 +2559,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
         </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://images.bestbuy.com/BestBuy_US/images/products/2874/2874502_sc.jpg"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.bestbuy.com/v1/products/2874502.json"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/2874502.json"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&amp;type=category&amp;cmp=RMX&amp;ky=1xrtkOPXgHdxEmF4yQx1jGyxiihDiJ5c2&amp;qvsids=2874502"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/apple-ipad-mini-with-wi-fi-16gb-space-gray-black/2874502.p?id=1219080300496&amp;skuId=2874502&amp;cmp=RMX&amp;ky=2dN2vg9ikE823Sb2cqFFchnSnf6JkvQna"</span><span class="w">
       </span><span class="p">},</span><span class="w">
