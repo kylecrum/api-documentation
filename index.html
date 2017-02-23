@@ -280,7 +280,9 @@
 
 <p>Even if you&rsquo;ve trimmed down the number of products returned by making use of search, many of our APIs have the potential to return lots of results. To make these large responses more manageable, we break them into pages. By default, we include 10 results per page, but you can ask for up to 100 per page by making use of the <code class="prettyprint">pageSize</code> parameter. Use the <code class="prettyprint">page</code> parameter to choose which page of results you&rsquo;d like returned.</p>
 
-<p>Here is an explanation of the meta data when more than one page is available</p>
+<p><strong>Note:</strong> If your result set is more than 10 pages, you should use the <code class="prettyprint">cursorMark</code> parameter to walk through your results. See <a href="#cursor-marks">Cursor Marks</a> for more information. </p>
+
+<p>Here is an explanation of the meta data when more than one page is available:</p>
 
 <table><thead>
 <tr>
@@ -323,6 +325,86 @@
 <td><strong>totalPages</strong></td>
 <td>the number of pages required to list all items</td>
 <td>referred to as &ldquo;page.total&rdquo; for the Recommendations and Buying Options APIs</td>
+</tr>
+</tbody></table>
+
+<h2 id="cursor-marks">Cursor Marks</h2>
+
+<pre class="highlight shell"><code>curl <span class="s1">'https://api.bestbuy.com/v1/products(type=HardGood)?format=json&amp;show=sku,name,salePrice&amp;pageSize=100&amp;cursorMark=*&amp;apiKey=YourAPIKey'</span>
+</code></pre>
+
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'type=HardGood'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">,</span><span class="na">pageSize</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nx">cursorMark</span><span class="o">=*</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+
+<blockquote>
+<p>In this example we ask for the first page of results and for each page to contain 100 products.</p>
+</blockquote>
+
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"nextCursorMark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AoNeDQhAhoq2MnByb2R1Y3RfMTE0NjYzNV91cw=="</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">49911</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.037"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.362"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(type=\"HardGood\")?show=sku,name,salePrice&amp;pageSize=100&amp;cursorMark=*&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">5477500</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amazon - Fire TV Stick with Alexa Voice Remote - Black"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">39.99</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">4397400</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google - Chromecast - Black"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span></code></pre>
+
+<p><em>Applies to: Products API &#8226; Stores API &#8226; Categories API</em></p>
+
+<p>With large result sets - e.g., query sets with more than 10 pages of results - we recommend you use the <code class="prettyprint">cursorMark</code> parameter to walk through your results. You can use <code class="prettyprint">cursorMark</code> to walk through the full product or store catalog, deltas since you last queried for active products, or any other query result. The <code class="prettyprint">cursorMark</code> works a lot like a bookmark, keeping track of what subset of items are currently shown in your result set and how to get to the next subset of items. </p>
+
+<p>To use the <code class="prettyprint">cursorMark</code> with your result set, add <code class="prettyprint">cursorMark=*</code> to your query parameters. A <code class="prettyprint">nextCursorMark</code> parameter will be included in the metadata that you will use to walk through the full result set. After the initial result, replace the asterisk <code class="prettyprint">*</code> with the <code class="prettyprint">nextCursorMark</code> value noted in the current metadata to move to the next subset of results. For each subset, a fresh hash value will be presented. When you reach the end of the cursor marks, you will receive an empty result. </p>
+
+<p><strong>Tip:</strong> To query for updates or deltas since you last walked through the result set you can use the <code class="prettyprint">itemUpdateDate</code> attribute. To ensure that your query results include changes to a product&rsquo;s active/inactive status, add <code class="prettyprint">active=*</code> to your query parameters. For example: <code class="prettyprint">.../v1/products(itemUpdateDate&gt;2017-02-06T16:00:00&amp;active=*)?format=json&amp;pageSize=100&amp;cursorMark=*&amp;apiKey=YOUR_API_KEY</code></p>
+
+<p>Here is an explanation of the meta data when more than one subset is available:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Additional Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>canonicalURL</strong></td>
+<td>the non-server part of the query</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>cursorMark</strong></td>
+<td>a hash indicating the current location within the result set</td>
+<td>add <code class="prettyprint">cursorMark=*</code> to your query to get the first subset of results</td>
+</tr>
+<tr>
+<td><strong>nextCursorMark</strong></td>
+<td>a hash indicating the start of the next subset of items in your result set</td>
+<td>we recommend only moving forward through your result sets using <code class="prettyprint">cursorMark</code></td>
+</tr>
+<tr>
+<td><strong>total</strong></td>
+<td>the total number of items returned by the query</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>totalPages</strong></td>
+<td>the number of subsets of items in the full query result</td>
+<td>can be used as an approximation of the number of cursor marks you will need to iterate through to walk the entire query result</td>
 </tr>
 </tbody></table>
 
