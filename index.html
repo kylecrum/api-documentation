@@ -499,18 +499,6 @@
 </tr>
 </tbody></table>
 
-<h2 id="bulk-downloads">Bulk Downloads</h2>
-
-<p>Although we recommend that you make live calls to our APIs whenever possible, users who require a larger dataset may be better served by our Bulk Download API. Files are regenerated daily by 9AM CST.</p>
-
-<p>The following APIs offer bulk downloading capabilities:</p>
-
-<ul>
-<li><a href="#categories-bulk-download">Categories</a></li>
-<li><a href="#products-bulk-download">Products</a></li>
-<li><a href="#stores-bulk-download">Stores</a></li>
-</ul>
-
 <h2 id="errors">Errors</h2>
 
 <p><em>Applies to: Products API &#8226; Stores API &#8226; Categories API &#8226; Recommendations API</em></p>
@@ -1081,7 +1069,7 @@
 
           <h1 id="products-api">Products API</h1>
 
-<p>The Best Buy Product API provides a simple, REST-based interface for our entire product catalog, past and present. This includes pricing, availability, specifications, descriptions, and images for more than one million current and historical products. In addition, we offer full archives, updated daily, to make it easier to establish our full catalog locally. <strong>Most product information is updated near real-time, including product pricing.</strong></p>
+<p>The Best Buy Product API provides a simple, REST-based interface for our entire product catalog, past and present. This includes pricing, availability, specifications, descriptions, and images for more than one million current and historical products. <strong>Most product information is updated near real-time, including product pricing.</strong></p>
 
 <p><em>PLEASE NOTE: Music and movie data may be used only where an ability to purchase the related music or movies from BESTBUY.COM is provided to end users. Developers using music and movie data to redirect to BESTBUY.COM must become members of the Best Buy Affiliate Program to allow the sale of music and movies through BESTBUY.COM under the terms of the Affiliate Program.</em></p>
 
@@ -1882,82 +1870,6 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
 <p><strong>Note:</strong> Descriptions of other warranty-related attributes, including <code class="prettyprint">skuId</code>, <code class="prettyprint">shortName</code>, <code class="prettyprint">currentPrice</code>, <code class="prettyprint">type</code>, <code class="prettyprint">department</code>, <code class="prettyprint">class</code>, and <code class="prettyprint">subclass</code> can be found in our core Products documentation.</p>
 
-<h2 id="products-bulk-download">Products Bulk Download</h2>
-
-<p>There are two files generated for all products:</p>
-
-<ul>
-<li><code class="prettyprint">https://api.bestbuy.com/v1/products.xml.zip?apiKey=YourAPIKey</code> - XML format</li>
-<li><code class="prettyprint">https://api.bestbuy.com/v1/products.json.zip?apiKey=YourAPIKey</code> - JSON format</li>
-</ul>
-
-<p>There is one file generated for all available stores for <strong>Best Buy</strong> products:</p>
-
-<ul>
-<li><code class="prettyprint">https://api.bestbuy.com/v1/storeAvailability.tsv.zip?apiKey=YourAPIKey</code> - TSV (tab seperated values) format</li>
-</ul>
-
-<h2 id="product-subset-downloads">Product Subset Downloads</h2>
-
-<p>If you are interested in only one type of product, you can make a bulk download of one of our subsets. Subsets are also available each day by 9:00 am(CST).</p>
-
-<table><thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>productsActive</td>
-<td>Includes digital, preowned; excludes BlackTie plans</td>
-</tr>
-<tr>
-<td>productsInactive</td>
-<td>Includes all inactive products; includes digital, preowned, BlackTie plans</td>
-</tr>
-<tr>
-<td>productsMusic</td>
-<td>Active music</td>
-</tr>
-<tr>
-<td>productsMovie</td>
-<td>Active movies</td>
-</tr>
-<tr>
-<td>productsHardgood</td>
-<td>Active hardgoods; includes preowned</td>
-</tr>
-<tr>
-<td>productsGame</td>
-<td>Active games; includes preowned</td>
-</tr>
-<tr>
-<td>productsSoftware</td>
-<td>Active software</td>
-</tr>
-<tr>
-<td>productsBlackTie</td>
-<td>Active BlackTie</td>
-</tr>
-<tr>
-<td>productsDigital</td>
-<td>Active digital products</td>
-</tr>
-</tbody></table>
-
-<h3 id="query-syntax">Query Syntax</h3>
-
-<p><code class="prettyprint">https://api.bestbuy.com/v1/subsets/[subset].[format].zip?apiKey=YourAPIKey</code></p>
-
-<ul>
-<li>[format] must be <em>xml</em> or <em>json</em></li>
-<li>[subset] must be a &ldquo;Type&rdquo; from the above list</li>
-</ul>
-
-<h3 id="sample-query-for-digital-products">Sample Query For Digital Products</h3>
-
-<p><code class="prettyprint">https://api.bestbuy.com/v1/subsets/productsDigital.xml.zip?apiKey=YourAPIKey</code></p>
-
           <h1 id="buying-options-open-box-api">Buying Options (Open Box) API</h1>
 
 <p>The Buying Options API helps you access some of our best deals. This is where you&rsquo;ll find information about ship-from-store eligible Open Box products including availability, condition and special pricing, with more to come as we build out this API further. Our Open Box endpoints provide access to several categories of Best Buy merchandise, similar to the &ldquo;Buying Options&rdquo; tab on <strong>BESTBUY.COM</strong> product detail pages. We typically have multiple Open Box products for a single SKU. When a customer purchases an Open Box product on <strong>BESTBUY.COM</strong> we ship from the closest Best Buy store based on the customer shipping address. To assist in selecting the correct Open Box product we assign a condition of &ldquo;excellent or certified&rdquo; to the product in every Open Box offer.</p>
@@ -2372,15 +2284,6 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 </span></code></pre>
 
 <p>The following query will return the category path for the category <code class="prettyprint">name</code> specified in the input. In the below example we are requesting the category path for a <strong>Sony DSLR Camera</strong>. The query results are shown in a flat hierarchical path starting from the root. In this case <strong>Best Buy</strong> is the root category which is the first in the path, followed by its child category <strong>Name Brands</strong>, whose child is <strong>Sony</strong>, and its child <strong>Sony DSLR Camera</strong>, which is also the last category in this path.</p>
-
-<h2 id="categories-bulk-download">Categories Bulk Download</h2>
-
-<p>There are two files generated for all categories:</p>
-
-<ul>
-<li><code class="prettyprint">https://api.bestbuy.com/v1/categories.xml.zip?apiKey=YourAPIKey</code> - XML format</li>
-<li><code class="prettyprint">https://api.bestbuy.com/v1/categories.json.zip?apiKey=YourAPIKey</code> - JSON format</li>
-</ul>
 
           <h1 id="recommendations-api">Recommendations API</h1>
 
@@ -3017,14 +2920,6 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 <p>Availability in stores is calculated using counts and previous-day sales to determine if the product is likely to be available, might be available or is unlikely to be available.  The algorithm errs on the side of caution, and anything that is not available defaults to &ldquo;not available&rdquo;.</p>
 
 <p><em>HINT: The Products API attribute <code class="prettyprint">inStoreAvailability</code> will tell you if a product is sold in stores but not if it&rsquo;s available at a particular store. Using the In-Store availability queries is equivalent to checking product availability in store.</em></p>
-
-<h2 id="stores-bulk-download">Stores Bulk Download</h2>
-
-<p>There is one file generated for all available stores for <strong>Best Buy</strong> products:</p>
-
-<ul>
-<li><code class="prettyprint">https://api.bestbuy.com/v1/storeAvailability.tsv.zip?apiKey=YourAPIKey</code> - TSV (tab seperated values) format</li>
-</ul>
 
           <h1 id="commerce-api">Commerce API</h1>
 
