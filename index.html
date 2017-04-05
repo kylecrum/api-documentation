@@ -2162,7 +2162,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
 <p>Similarly, the Subcategories path attributes provide a collection of subcategories for the parent category. Each category can have one or more subcategories associated to it, which are identified by subcategory ids and names.</p>
 
-<p><em>The Products API also includes the category path information for each product. For additional information on the category attributes in Products API, refer to <a href="/documentation/products-api#documentation/products-api-categorizations">Categorizations.</a></em></p>
+<p><em>The Products API also includes the category path information for each product. For additional information on the category attributes in Products API, refer to <a href="#categorizations">Categorizations.</a></em></p>
 
 <h2 id="common-attributes">Common Attributes</h2>
 
@@ -2179,6 +2179,10 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 <tr>
 <td><strong>id</strong></td>
 <td>Used to find all results within a specific category (e.g., abcat0100000)</td>
+</tr>
+<tr>
+<td><strong>url</strong></td>
+<td>URL to corresponding BESTBUY.COM category page</td>
 </tr>
 <tr>
 <td><strong>path.name</strong></td>
@@ -2215,22 +2219,27 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
   </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.003"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.025"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/categories?show=id&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/categories?show=id,url&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcat0010000"</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcat0010000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/electronics/gift-ideas/abcat0010000.c?id=abcat0010000"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcat0020001"</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcat0020001"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/electronics/gift-ideas/abcat0020001.c?id=abcat0020001"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcat0020002"</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcat0020002"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/electronics/gift-ideas/abcat0020002.c?id=abcat0020002"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcat0020004"</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcat0020004"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/electronics/gift-ideas/abcat0020004.c?id=abcat0020004"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcat0100000"</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcat0100000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/electronics/gift-ideas/abcat0100000.c?id=abcat0100000"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
