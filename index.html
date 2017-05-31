@@ -1341,6 +1341,8 @@
 
 <p>The Availability attributes provide details into which products can be purchased online and which products can be picked up in stores.</p>
 
+<p><em>Note: For store-specific availability, please refer to our <a href="#stores-api">Stores API</a> documentation.</em></p>
+
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -2892,6 +2894,38 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 </tbody></table>
 
 <h2 id="in-store-availability">In-Store Availability</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products/4807511/stores.json?postalCode=55423&amp;apiKey=YourAPIKey"</span>
+</code></pre>
+
+<blockquote>
+<p>Shows stores near 55423 (Richfield, MN) that carry SKU 4807511 (Insignia LED-TV)</p>
+</blockquote>
+<pre class="highlight json-doc"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"ispuEligible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"storeID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"281"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RICHFIELD MN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000 WEST 78TH ST"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RICHFIELD"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55423"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"storeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big_Box_Store"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"minPickupHours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lowStock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The Stores API, in conjunction with the Products API, allows you to search stores for a product and identify if it is available. In-store availability searches will return only those stores that have a given product in stock. Stores not returned do not have that product in stock. You can get near real time availability for specific SKUs based on either a store ID or postal code search. If you prefer to use a broader query - e.g., based on lat/long data or a wider set of product query parameters - your results will be based on estimated data (see below).</p>
+
+<h3 id="sku-specific-availability">SKU Specific Availability</h3>
+
+<p>You can look up near real time store availability for single SKUs. You may search either on <code class="prettyprint">postalCode</code> or based on <code class="prettyprint">storeId</code>. Results for <code class="prettyprint">postalCode</code> queries will include all stores within a 250 mile radius, sorted by proximity. </p>
+
+<h3 id="broad-availability-query">Broad Availability Query</h3>
 <pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,3)&amp;storeType=Express)+products(sku=5038019)?format=json&amp;show=storeId,storeType,city,region,name,products.name,products.sku,products&amp;pageSize=1&amp;apiKey=YourAPIKey"</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="c1">//Not yet implemented</span>
@@ -2924,9 +2958,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>The Stores API, in conjunction with the Products API, allows you to search stores for a product and identify if it is available. In-store availability searches will return only those stores that have a given product in stock. Stores not returned do not have that product in stock. When completing an in-store availability query you should limit the stores that are a part of the query.</p>
-
-<p>Availability in stores is calculated using counts and previous-day sales to determine if the product is likely to be available, might be available or is unlikely to be available.  The algorithm errs on the side of caution, and anything that is not available defaults to &ldquo;not available&rdquo;.</p>
+<p>If you prefer a broader query, you can use a fuller set of query parameters. Using this wider search, availability in stores is calculated using counts and previous-day sales to determine if the product is likely to be available, might be available or is unlikely to be available.  The algorithm errs on the side of caution, and anything that is not available defaults to &ldquo;not available&rdquo;.</p>
 
 <p><em>HINT: The Products API attribute <code class="prettyprint">inStoreAvailability</code> will tell you if a product is sold in stores but not if it&rsquo;s available at a particular store. Using the In-Store availability queries is equivalent to checking product availability in store.</em></p>
 
